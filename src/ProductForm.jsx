@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 const ProductForm = () => {
+  const [Submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -10,6 +11,20 @@ const ProductForm = () => {
     // imageUrl: "",
   });
   // console.log(formData);
+  useEffect(() => {
+    const lastId = localStorage.getItem("lastId");
+    if (lastId) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        id: parseInt(lastId) + 1,
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        id: 1,
+      }));
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -25,6 +40,7 @@ const ProductForm = () => {
       });
     }
   };
+  
   const handleImageUpload = async () => {
     const data = new FormData();
     data.append("file", formData.image);
@@ -52,6 +68,7 @@ const ProductForm = () => {
       return;
     }
 
+    
     const productData = {
       id: formData.id,
       name: formData.name,
@@ -70,25 +87,26 @@ const ProductForm = () => {
       });
       const result = await response.json();
       console.log("Form submitted:", result);
+      setSubmitted(true); 
+      localStorage.setItem("lastId", formData.id);
+      setFormData({
+        id: formData.id + 1, // Increment the ID for the next product
+        name: "",
+        description: "",
+        price: "",
+        image: null,
+      });
     } catch (err) {
       console.error("Error:", err);
     }
   };
-
+  if (Submitted) {
+    return <p>Form submitted successfully!</p>;
+  }
   
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="id">ID:</label>
-        <input
-          type="text"
-          id="id"
-          name="id"
-          value={formData.id}
-          onChange={handleChange}
-        />
-      </div>
       <div>
         <label htmlFor="name">Name:</label>
         <input
