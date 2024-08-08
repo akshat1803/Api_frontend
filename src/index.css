@@ -1,0 +1,71 @@
+.Akshat {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 800px;
+    height: 500px;
+    margin: 7% 25%;
+    border: 1px black solid;
+    background-color: #1A4870;
+    color:#ffffff;
+    border-radius: 50px;
+    position: absolute;
+    top: 20px;
+    background-image: url("https://media.croma.com/image/upload/v1664476973/Croma%20Assets/Communication/Headphones%20and%20Earphones/Images/243227_8_n1okpa.png");
+    background-size: 800px;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 10px 10px grey;
+    background-position: center;
+}
+
+h1{
+    font-size: 48px;
+    text-align  : center;
+    color: #F3FEB8;
+}
+.Cart label {
+    font-weight:500;
+    font-size: 20px;
+    padding: 0 1rem 0 7rem;
+    margin-top: 2rem;
+    color: #4db5c8;
+}
+.submit{
+    text-align: center ;
+}
+.submit button{
+    padding: 0.5rem 3rem;
+    font-weight:700;
+    font-size: 20px;
+    background-color: #F6EACB;
+    color: #1F316F;
+    border-radius: 10px;
+}
+.Cart input{
+    padding: 0.5rem;
+    font-size: 20px;
+
+    font-size: medium;
+    box-shadow:black;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+.Cart textarea{
+    font-size: medium;
+    font-size: 20px;
+
+    margin-top: 2rem;
+    padding: 0.5  1rem;
+    border-radius: 10px;
+    
+}
+.image{
+    width: 100%;
+    position: relative;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.89;
+
+}

@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
+import "./index.css"
 const ProductForm = () => {
   const [Submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -101,14 +102,18 @@ const ProductForm = () => {
     }
   };
   if (Submitted) {
-    return <p>Form submitted successfully!</p>;
+     <p>Form submitted successfully!</p>;
   }
   
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
+    <div className="image">
+      <img src="https://cdna.artstation.com/p/assets/images/images/052/882/258/large/druthik-druthik-boat-1.jpg?1660894729" alt="" />
+    <div className="Akshat">
+      <h1>Add product to my cart</h1>
+    <form onSubmit={handleSubmit} className="Cart">
+      <div className="name">
+        <label htmlFor="name"  >Product name:</label>
         <input
           type="text"
           id="name"
@@ -117,8 +122,8 @@ const ProductForm = () => {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="description">Description:</label>
+      <div className="">
+        <label htmlFor="description">Description about the product:</label>
         <textarea
           id="description"
           name="description"
@@ -127,7 +132,7 @@ const ProductForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="price">Price:</label>
+        <label htmlFor="price">Price of product:</label>
         <input
           type="number"
           id="price"
@@ -137,11 +142,15 @@ const ProductForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="image">Image:</label>
+        <label htmlFor="image">Image of the product:</label>
         <input type="file" id="image" name="image" onChange={handleChange} />
       </div>
-      <button type="submit">Submit</button>
+      <div className="submit">
+      <button type="submit">Add Product</button>
+      </div>
     </form>
+    </div>
+    </div>
   );
 };
 
