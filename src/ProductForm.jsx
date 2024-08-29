@@ -8,6 +8,7 @@ const ProductForm = () => {
     name: "",
     description: "",
     price: "",
+    category: "",
     image: null,
     // imageUrl: "",
   });
@@ -75,6 +76,7 @@ const ProductForm = () => {
       name: formData.name,
       description: formData.description,
       price: formData.price,
+      category:formData.category,
       image: imageUrl,
     };
 
@@ -91,10 +93,11 @@ const ProductForm = () => {
       setSubmitted(true); 
       localStorage.setItem("lastId", formData.id);
       setFormData({
-        id: formData.id + 1, // Increment the ID for the next product
+        id: formData.id + 1,
         name: "",
         description: "",
         price: "",
+        category: "",
         image: null,
       });
     } catch (err) {
@@ -138,6 +141,16 @@ const ProductForm = () => {
           id="price"
           name="price"
           value={formData.price}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="category">Category of product:</label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          value={formData.category}
           onChange={handleChange}
         />
       </div>
